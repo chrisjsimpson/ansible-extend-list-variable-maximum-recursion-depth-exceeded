@@ -1,0 +1,14 @@
+---
+- name: Example extending an existing list var in ansible
+  hosts: localhost
+  connection: local
+
+  tasks:
+  - name: Combine lists (because env == "LOCAL")
+    ansible.builtin.set_fact:
+      my_list: "{{ my_list + additonal_items }}"
+    when: env == "LOCAL"
+
+  - name: Print the extended variable
+    ansible.builtin.debug:
+      msg: Printing {{ my_list }}

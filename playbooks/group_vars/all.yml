@@ -1,0 +1,17 @@
+---
+env: LOCAL
+
+# Yes, these lists are in the same file, but 
+# typically when you hit this issue you have a list in a *different* inventory/group
+# which you want to extend
+my_list:
+  - name: chris
+    value: 20
+  - name: jeremy
+    value: 30
+
+additonal_items:
+  - name: alice 
+    value: 12
+
+# See `main.yml` where these two lists are combined, keeping the name `my_list`
