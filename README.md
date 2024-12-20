@@ -19,6 +19,22 @@ We can add a task which conditionally runs, and expands the list as you wish:
 
 - Take a look at [./playbooks/main.yml](./playbooks/main.yml)
 
+# Example play output showing extended list
+
+```
+PLAY [Example extending an existing list var in ansible] ***********************
+TASK [Gathering Facts] *********************************************************
+ok: [localhost]
+TASK [Combine lists (because env == "LOCAL")] **********************************
+ok: [localhost]
+TASK [Print the extended variable] *********************************************
+ok: [localhost] => {
+    "msg": "Printing [{'name': 'chris', 'value': 20}, {'name': 'jeremy', 'value': 30}, {'name': 'alice', 'value': 12}]"
+}
+PLAY RECAP *********************************************************************
+localhost                  : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0  
+```
+
 ## Steps to reproduce
 ```
 python3 -m venv venv
@@ -26,7 +42,6 @@ python3 -m venv venv
 pip install ansible
 ansible-playbook playbooks/main.yml
 ```
-
 
 
 You've probably already read:
